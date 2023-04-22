@@ -1,0 +1,12 @@
+.idea
+*.swp*
+__pycache__
+*.ipynb*
+*.ipynb
+*.log
+tmp
+
+node_modules/
+.project
+unpackage/
+.DS_Store
