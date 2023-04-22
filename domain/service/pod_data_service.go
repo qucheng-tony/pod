@@ -4,14 +4,14 @@ import (
 	"context"
 	"fmt"
 	"github.com/qucheng-tony/common"
+	"github.com/qucheng-tony/pod/domain/model"
+	"github.com/qucheng-tony/pod/domain/repository"
+	"github.com/qucheng-tony/pod/proto/pod"
 	v1 "k8s.io/api/apps/v1"
 	v13 "k8s.io/api/core/v1"
 	"k8s.io/apimachinery/pkg/api/resource"
 	v12 "k8s.io/apimachinery/pkg/apis/meta/v1"
 	"k8s.io/client-go/kubernetes"
-	"pod/domain/model"
-	"pod/domain/repository"
-	"pod/proto/pod"
 	"strconv"
 )
 

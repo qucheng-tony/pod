@@ -1,8 +1,8 @@
 package repository
 
 import (
+	"github.com/qucheng-tony/pod/domain/model"
 	"gorm.io/gorm"
-	"pod/domain/model"
 )
 
 // IpodRepository 创建需要实现的接口

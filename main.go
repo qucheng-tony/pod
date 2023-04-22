@@ -11,16 +11,16 @@ import (
 	"gorm.io/driver/mysql"
 	"gorm.io/gorm"
 
-	"pod/domain/repository"
-	service2 "pod/domain/service"
-	"pod/handler"
-	"pod/proto/pod"
+	"github.com/qucheng-tony/pod/domain/repository"
+	service2 "github.com/qucheng-tony/pod/domain/service"
+	"github.com/qucheng-tony/pod/handler"
+	"github.com/qucheng-tony/pod/proto/pod"
 
 	"github.com/asim/go-micro/v3"
 	"github.com/asim/go-micro/v3/registry"
 	"github.com/opentracing/opentracing-go"
+	hystrix2 "github.com/qucheng-tony/pod/plugin/hystrix"
 	"k8s.io/client-go/kubernetes"
-	hystrix2 "pod/plugin/hystrix"
 
 	"github.com/qucheng-tony/common"
 	"k8s.io/client-go/tools/clientcmd"
@@ -33,10 +33,10 @@ import (
 
 var (
 	// 注册中心配置
-	consulHost       = "192.168.0.105"
+	consulHost       = "192.168.0.111"
 	consulPort int64 = 8500
 	// 链路追踪
-	tracerHost = "192.168.0.105"
+	tracerHost = "192.168.0.111"
 	tracerPort = 6831
 	// 熔断器
 	hystrixPort = 9092
@@ -63,6 +63,7 @@ func main() {
 	m := common.GetMysqlFromConsul(consulConfig, "mysql")
 	// 4、初始化数据库
 	dsn := m.User + ":" + m.Pwd + "@tcp(" + m.Host + ":" + m.Port + ")/" + m.DB + "?charset=utf8&parseTime=True&loc=Local"
+	common.Info(dsn)
 	dbs, err := gorm.Open(mysql.New(mysql.Config{
 		DSN:                       dsn,   // DSN data source name
 		DefaultStringSize:         256,   // string 类型字段的默认长度

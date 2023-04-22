@@ -3,9 +3,9 @@ package handler
 import (
 	"context"
 	"github.com/qucheng-tony/common"
-	"pod/domain/model"
-	"pod/domain/service"
-	"pod/proto/pod"
+	"github.com/qucheng-tony/pod/domain/model"
+	"github.com/qucheng-tony/pod/domain/service"
+	"github.com/qucheng-tony/pod/proto/pod"
 	"strconv"
 )
 
